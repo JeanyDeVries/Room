@@ -9,12 +9,25 @@ public class RocketScript : MonoBehaviour
 
     [SerializeField]
     private GameObject rocketText;
-    [SerializeField]
-    private float distance;
-
-    private void Update()
+    /*
+    private void OnTriggerStay(Collider other)
     {
-        distance = Vector3.Distance(player.transform.position, this.transform.position);
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if(Physics.Raycast(ray, out hit))
+        {
+            if(hit.transform.name == "raket")
+            {
+                print("Hovering over rocket");
+            }
+        }
+    }
+
+    
+    void CheckIfHovering()
+    {
+
     }
 
     private void OnMouseEnter()
@@ -26,4 +39,5 @@ public class RocketScript : MonoBehaviour
     {
         rocketText.SetActive(false);
     }
+    */
 }
