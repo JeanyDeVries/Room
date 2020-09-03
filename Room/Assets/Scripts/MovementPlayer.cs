@@ -9,13 +9,21 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField]
     private float speed = 10f;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+            Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+            controller.Move(move * speed * Time.deltaTime);
+        }
+
+        if (transform.position.y != 1)
+        {
+            transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
+        }
     }
 }
